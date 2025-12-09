@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://d3xvnpdoy7jqh"]
+
+[ext_resource type="Texture2D" uid="uid://cycemtq8k4b33" path="res://Interactables/Dungeon/dungeon_props.png" id="1_k63pl"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kwhp8"]
+atlas = ExtResource("1_k63pl")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3jn7v"]
+size = Vector2(32, 17)
+
+[node name="StaticStatue" type="StaticBody2D"]
+collision_layer = 16
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = SubResource("AtlasTexture_kwhp8")
+region_enabled = true
+region_rect = Rect2(384, 0, 32, 48)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 15.5)
+shape = SubResource("RectangleShape2D_3jn7v")
