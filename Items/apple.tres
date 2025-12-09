@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=8 format=3 uid="uid://b7hdmxr0gocln"]
+
+[ext_resource type="Script" uid="uid://bgeyno5qkjvi7" path="res://Items/item_effects/item_effect.gd" id="1_xwhp1"]
+[ext_resource type="AudioStream" uid="uid://cbe2mf0qla45c" path="res://Items/item_effects/hp-up.wav" id="2_3wksx"]
+[ext_resource type="Script" uid="uid://pbi0f7drkeo3" path="res://Items/scripts/item_data.gd" id="2_ovoyb"]
+[ext_resource type="Script" uid="uid://cfxhk72b1ur3g" path="res://Items/item_effects/item_effect_heal.gd" id="3_nj3b8"]
+[ext_resource type="Texture2D" uid="uid://c2lflffb1ul0y" path="res://Items/sprites/items.png" id="5_xq26w"]
+
+[sub_resource type="Resource" id="Resource_0m7an"]
+script = ExtResource("3_nj3b8")
+audio = ExtResource("2_3wksx")
+metadata/_custom_type_script = "uid://cfxhk72b1ur3g"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nido0"]
+atlas = ExtResource("5_xq26w")
+region = Rect2(192, 0, 32, 32)
+
+[resource]
+script = ExtResource("2_ovoyb")
+description = "A shiny red apple! Heals half a heart."
+texture = SubResource("AtlasTexture_nido0")
+effects = Array[ExtResource("1_xwhp1")]([SubResource("Resource_0m7an")])
+metadata/_custom_type_script = "uid://pbi0f7drkeo3"

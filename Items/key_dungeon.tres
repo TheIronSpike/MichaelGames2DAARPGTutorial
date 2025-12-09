@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=5 format=3 uid="uid://chmijyxa3lps6"]
+
+[ext_resource type="Script" uid="uid://bgeyno5qkjvi7" path="res://Items/item_effects/item_effect.gd" id="1_tdgsu"]
+[ext_resource type="Script" uid="uid://pbi0f7drkeo3" path="res://Items/scripts/item_data.gd" id="2_u6d1n"]
+[ext_resource type="Texture2D" uid="uid://c2lflffb1ul0y" path="res://Items/sprites/items.png" id="3_u6d1n"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y1yal"]
+atlas = ExtResource("3_u6d1n")
+region = Rect2(224, 0, 32, 32)
+
+[resource]
+script = ExtResource("2_u6d1n")
+name = "Dungeon Key"
+description = "A shiny, golden key. Perhaps it unlocks a door?"
+texture = SubResource("AtlasTexture_y1yal")
+effects = Array[ExtResource("1_tdgsu")]([])
+metadata/_custom_type_script = "uid://pbi0f7drkeo3"
