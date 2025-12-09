@@ -1,0 +1,153 @@
+[gd_scene load_steps=10 format=3 uid="uid://dn8dw5y4jsi8g"]
+
+[ext_resource type="Script" uid="uid://dw8ljewjhbgp" path="res://GUI/pause_menu/pause_menu.gd" id="1_4w82k"]
+[ext_resource type="FontFile" uid="uid://e2c3tfgjsb85" path="res://GUI/fonts/Abaddon Bold.ttf" id="2_8rjl7"]
+[ext_resource type="Texture2D" uid="uid://c2lflffb1ul0y" path="res://Items/sprites/items.png" id="2_rsqrg"]
+[ext_resource type="PackedScene" uid="uid://ct8vdp374fa1w" path="res://GUI/pause_menu/inventory/inventory_slot.tscn" id="3_36pfd"]
+[ext_resource type="FontFile" uid="uid://3psdy2saewab" path="res://GUI/fonts/m5x7.ttf" id="3_dvxeg"]
+[ext_resource type="Script" uid="uid://dbl7b28vbckxj" path="res://GUI/pause_menu/inventory/scripts/inventory_ui.gd" id="3_ewgu5"]
+[ext_resource type="Resource" uid="uid://co1n60djfbuiu" path="res://GUI/pause_menu/inventory/player_inventory.tres" id="4_ewgu5"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ewgu5"]
+atlas = ExtResource("2_rsqrg")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_sn1ji"]
+content_margin_left = 10.0
+content_margin_top = 10.0
+content_margin_right = 10.0
+content_margin_bottom = 10.0
+texture = SubResource("AtlasTexture_ewgu5")
+texture_margin_left = 14.0
+texture_margin_top = 14.0
+texture_margin_right = 14.0
+texture_margin_bottom = 14.0
+
+[node name="PauseMenu" type="CanvasLayer"]
+process_mode = 3
+script = ExtResource("1_4w82k")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.792157)
+
+[node name="Label" type="Label" parent="Control"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -40.0
+offset_top = 16.0
+offset_right = 41.0
+offset_bottom = 39.0
+grow_horizontal = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 1
+theme_override_fonts/font = ExtResource("2_8rjl7")
+text = "- PAUSED -"
+
+[node name="ItemDescription" type="Label" parent="Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -71.0
+offset_top = -81.0
+offset_right = 71.0
+offset_bottom = -61.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 1
+theme_override_fonts/font = ExtResource("3_dvxeg")
+theme_override_font_sizes/font_size = 16
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -98.0
+offset_top = -44.0
+offset_right = 98.0
+offset_bottom = 44.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+theme_override_styles/panel = SubResource("StyleBoxTexture_sn1ji")
+
+[node name="GridContainer" type="GridContainer" parent="Control/PanelContainer"]
+layout_mode = 2
+columns = 5
+script = ExtResource("3_ewgu5")
+data = ExtResource("4_ewgu5")
+
+[node name="InventorySlot" parent="Control/PanelContainer/GridContainer" instance=ExtResource("3_36pfd")]
+layout_mode = 2
+
+[node name="InventorySlot2" parent="Control/PanelContainer/GridContainer" instance=ExtResource("3_36pfd")]
+layout_mode = 2
+
+[node name="InventorySlot3" parent="Control/PanelContainer/GridContainer" instance=ExtResource("3_36pfd")]
+layout_mode = 2
+
+[node name="InventorySlot4" parent="Control/PanelContainer/GridContainer" instance=ExtResource("3_36pfd")]
+layout_mode = 2
+
+[node name="InventorySlot5" parent="Control/PanelContainer/GridContainer" instance=ExtResource("3_36pfd")]
+layout_mode = 2
+
+[node name="InventorySlot6" parent="Control/PanelContainer/GridContainer" instance=ExtResource("3_36pfd")]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -77.0
+offset_top = -62.0
+offset_right = 77.0
+offset_bottom = -31.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_vertical = 8
+
+[node name="Button_Save" type="Button" parent="Control/HBoxContainer"]
+custom_minimum_size = Vector2(75, 0)
+layout_mode = 2
+theme_override_constants/outline_size = 3
+theme_override_fonts/font = ExtResource("2_8rjl7")
+text = "SAVE"
+
+[node name="Button_Load" type="Button" parent="Control/HBoxContainer"]
+custom_minimum_size = Vector2(75, 0)
+layout_mode = 2
+theme_override_constants/outline_size = 3
+theme_override_fonts/font = ExtResource("2_8rjl7")
+text = "LOAD"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Control"]
+max_polyphony = 4
